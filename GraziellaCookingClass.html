@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chef Graziella Malgeri · Cooking Classes</title>
+  <meta name="description" content="Cooking lessons by Chef Graziella Malgeri for guests staying in villas in Tuscany.">
+  <meta property="og:title" content="Chef Graziella Malgeri · Cooking Classes">
+  <meta property="og:description" content="Traditional Tuscan cooking lessons with tasting, wine, diploma and recipe booklet.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --paper: #fbf7ef;
+      --card: rgba(255, 252, 246, .93);
+      --ink: #2f241c;
+      --muted: #766759;
+      --faint: #9b8a79;
+      --line: rgba(120, 87, 55, .18);
+      --accent: #8f5d3f;
+      --olive: #6b7356;
+      --soft: rgba(143, 93, 63, .08);
+      --shadow: 0 28px 70px rgba(58, 40, 20, .12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(203, 171, 126, .30), transparent 34rem),
+        radial-gradient(circle at 92% 8%, rgba(120, 129, 98, .14), transparent 28rem),
+        linear-gradient(180deg, #fcf8f0 0%, #f5eadc 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.56;
+    }
+    .page {
+      width: min(1120px, calc(100% - 34px));
+      margin: 0 auto;
+      padding: 40px 0 42px;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 5.6vw, 72px);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      background:
+        linear-gradient(135deg, rgba(255,253,248,.96), rgba(244,232,214,.92)),
+        radial-gradient(circle at 85% 18%, rgba(143,93,63,.10), transparent 22rem);
+      box-shadow: var(--shadow);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(143, 93, 63, .10);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 20px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 840px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(44px, 7.4vw, 88px);
+      line-height: .92;
+      letter-spacing: -.05em;
+      font-weight: 500;
+    }
+    .intro {
+      position: relative;
+      z-index: 1;
+      margin: 24px 0 0;
+      max-width: 790px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+    .hero-note {
+      position: relative;
+      z-index: 1;
+      margin-top: 28px;
+      max-width: 760px;
+      padding: 16px 18px;
+      border-left: 3px solid rgba(143, 93, 63, .44);
+      border-radius: 0 18px 18px 0;
+      background: rgba(255,255,255,.52);
+      color: #5f5042;
+      font-size: 14px;
+    }
+    .classes {
+      margin-top: 30px;
+      display: grid;
+      gap: 26px;
+    }
+    .class-card {
+      page-break-inside: avoid;
+      padding: clamp(24px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: var(--card);
+      box-shadow: 0 18px 45px rgba(60, 41, 21, .08);
+    }
+    .class-text {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .mood {
+      margin: 0 0 12px;
+      color: var(--olive);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4.7vw, 62px);
+      line-height: .96;
+      font-weight: 500;
+      letter-spacing: -.04em;
+    }
+    .summary {
+      margin: 16px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.85vw, 19px);
+    }
+    .courses {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px 18px;
+      text-align: left;
+    }
+    .course {
+      padding: 14px 16px 12px;
+      border-top: 1px solid rgba(120,87,55,.16);
+      border-radius: 16px;
+      background: rgba(255,255,255,.45);
+    }
+    .course h3 {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .course ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 15.5px;
+      color: var(--ink);
+    }
+    .course li {
+      position: relative;
+      padding-left: 16px;
+      margin: 5px 0;
+    }
+    .course li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .72em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(143,93,63,.58);
+    }
+    .info-section {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .info-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,252,246,.86);
+      box-shadow: 0 14px 34px rgba(60, 41, 21, .06);
+    }
+    .info-card h3 {
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .included-list, .price-list, .notes-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .included-list li, .price-list li, .notes-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 9px 0;
+      border-top: 1px solid rgba(120,87,55,.12);
+    }
+    .included-list li {
+      justify-content: flex-start;
+    }
+    .price-list strong {
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .small-print {
+      margin-top: 30px;
+      padding: 24px 24px 4px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .small-print h3 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .small-print ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 24px;
+    }
+    .small-print li {
+      padding-top: 8px;
+      border-top: 1px solid rgba(120,87,55,.12);
+    }
+    .signature {
+      margin-top: 22px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .courses { grid-template-columns: 1fr; }
+      .info-section { grid-template-columns: 1fr; }
+      .small-print ul { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .page { width: min(100%, calc(100% - 18px)); padding-top: 18px; }
+      .hero { border-radius: 28px; padding: 28px 22px; }
+      .hero::before { inset: 12px; border-radius: 20px; }
+      .class-card { padding: 22px 18px; border-radius: 24px; }
+      .course { padding: 12px 12px 10px; }
+      .info-card { padding: 20px 18px; border-radius: 22px; }
+      .small-print { padding-left: 8px; padding-right: 8px; }
+      .included-list li, .price-list li, .notes-list li { display: block; }
+      .price-list strong { display: block; margin-top: 2px; }
+    }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: #fff; }
+      .page { width: 100%; padding: 0; }
+      .class-card, .hero, .info-card { box-shadow: none; }
+      .hero { margin-bottom: 10mm; }
+      .class-card, .info-card { break-inside: avoid; margin-bottom: 8mm; }
+    }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Chef in Tuscany · Cooking Lessons</p>
+      <h1>Cooking Classes with Chef Graziella</h1>
+      <p class="intro">A selected set of hands-on Tuscan cooking lessons. Each class lasts about 2 hours, and at the end guests taste the dishes they prepared.</p>
+      <div class="hero-note">Each participant receives a diploma and an English recipe booklet. Chianti Classico red wine, limoncello or grappa, and bread baked in a wood oven are included.</div>
+    </section>
+    <section class="classes">
+      <article class="class-card">
+        <div class="class-text">
+          <p class="mood">Cooking lesson</p>
+          <h2>Traditional Cooking Course</h2>
+          <p class="summary">A classic Tuscan lesson with mixed vegetable salad, tagliatelle with Tuscan-style meat sauce and limoncello tiramisù.</p>
+          <div class="courses"><div class="course"><h3>Starters</h3><ul><li>Mixed vegetable salad</li></ul></div><div class="course"><h3>First course</h3><ul><li>Tagliatelle pasta with Tuscan-style meat sauce</li></ul></div><div class="course"><h3>Dessert</h3><ul><li>Tiramisù, limoncello version</li></ul></div></div>
+        </div>
+      </article>
+      <article class="class-card">
+        <div class="class-text">
+          <p class="mood">Cooking lesson</p>
+          <h2>Tuscan Harvest</h2>
+          <p class="summary">A rustic countryside lesson with tomatoes in green sauce, rough-cut homemade pasta and orange-dark chocolate tiramisù.</p>
+          <div class="courses"><div class="course"><h3>Starters</h3><ul><li>Tomatoes with green sauce</li></ul></div><div class="course"><h3>First course</h3><ul><li>Rough-cut homemade pasta with pork meat and red wine</li></ul></div><div class="course"><h3>Dessert</h3><ul><li>Tiramisù with orange and dark chocolate</li></ul></div></div>
+        </div>
+      </article>
+      <article class="class-card">
+        <div class="class-text">
+          <p class="mood">Cooking lesson</p>
+          <h2>Tuscan Hills</h2>
+          <p class="summary">A hands-on class built around bruschetta, ravioli with fresh tomatoes and basil, and chocolate roll.</p>
+          <div class="courses"><div class="course"><h3>Starters</h3><ul><li>Bruschetta with sautéed eggplants</li></ul></div><div class="course"><h3>First course</h3><ul><li>Ravioli (hands-on) with fresh tomatoes and basil</li></ul></div><div class="course"><h3>Dessert</h3><ul><li>Chocolate roll with chocolate sauce</li></ul></div></div>
+        </div>
+      </article>
+      <article class="class-card">
+        <div class="class-text">
+          <p class="mood">Cooking lesson</p>
+          <h2>Pasta Lovers</h2>
+          <p class="summary">A focused pasta lesson with gnocchi, Tuscan-style meat sauce and classic espresso tiramisù.</p>
+          <div class="courses"><div class="course"><h3>First course</h3><ul><li>Gnocchi with Tuscan-style meat sauce</li></ul></div><div class="course"><h3>Dessert</h3><ul><li>Tiramisù with espresso (classic version)</li></ul></div></div>
+        </div>
+      </article>
+      <article class="class-card">
+        <div class="class-text">
+          <p class="mood">Cooking lesson</p>
+          <h2>Good Eaters</h2>
+          <p class="summary">A fresh and simple class with tomato bruschetta, hands-on gnocchi with pesto and vanilla panna cotta.</p>
+          <div class="courses"><div class="course"><h3>Starters</h3><ul><li>Bruschetta with fresh tomatoes, garlic and basil</li></ul></div><div class="course"><h3>First course</h3><ul><li>Gnocchi (hands-on) with fresh pesto sauce</li></ul></div><div class="course"><h3>Dessert</h3><ul><li>Panna cotta - vanilla cream pudding with fresh berry sauce</li></ul></div></div>
+        </div>
+      </article>
+    </section>
+    <section class="info-section">
+      <div class="info-card">
+        <h3>Included</h3>
+        <ul class="included-list">
+          <li>Limoncello or Grappa</li>
+          <li>Bread baked in wood oven</li>
+          <li>Chianti Classico red wine</li>
+          <li>Diploma</li>
+          <li>English recipe booklet</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Price List</h3>
+        <ul class="price-list"><li><span>8 people and up</span><strong>€100 p.p.</strong></li><li><span>7 people</span><strong>€115 p.p.</strong></li><li><span>6 people</span><strong>€125 p.p.</strong></li><li><span>5 people</span><strong>€135 p.p.</strong></li><li><span>4 people</span><strong>€145 p.p.</strong></li><li><span>3 people</span><strong>€150 p.p.</strong></li></ul>
+      </div>
+    </section>
+    <section class="small-print">
+      <h3>Notes</h3>
+      <ul>
+        <li>Lesson duration: about 2 hours.</li>
+        <li>At the end, guests taste the dishes they prepared.</li>
+        <li>Chef travel to the villa: €50 total extra, not per person, regardless of distance.</li>
+        <li>Cash payment: prices are as indicated.</li>
+        <li>Card payment: +4%.</li>
+        <li>Final availability, date, time and allergies are confirmed before booking.</li>
+      </ul>
+      <p class="signature">Chef Graziella Malgeri · Cooking lessons</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chef Graziella Malgeri · Menus & Cooking Classes</title>
+  <meta name="description" content="Private dinner menus and cooking classes by Chef Graziella Malgeri in Tuscany.">
+  <meta property="og:title" content="Chef Graziella Malgeri · Menus & Cooking Classes">
+  <meta property="og:description" content="Discover private dinner menus, larger group menus and Tuscan cooking classes by Chef Graziella Malgeri.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/graziella-index-hero.png">
+  <style>
+    :root {
+      --paper: #fbf7ef;
+      --card: rgba(255, 252, 246, .92);
+      --ink: #2e231b;
+      --muted: #766758;
+      --faint: #9b8a79;
+      --line: rgba(120, 87, 55, .18);
+      --accent: #8f5d3f;
+      --olive: #6f765b;
+      --shadow: 0 28px 70px rgba(58, 40, 20, .14);
+      --shadow-soft: 0 18px 46px rgba(60, 41, 21, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(203,171,126,.28), transparent 34rem),
+        radial-gradient(circle at 92% 8%, rgba(120,129,98,.12), transparent 28rem),
+        linear-gradient(180deg, #fcf8f0 0%, #f5eadc 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.56;
+    }
+    .page {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 44px;
+    }
+    .hero {
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      background:
+        linear-gradient(90deg, rgba(252,247,238,.96) 0%, rgba(252,247,238,.90) 34%, rgba(252,247,238,.38) 62%, rgba(252,247,238,.12) 100%),
+        url('assets/graziella-index-hero.png') center/cover no-repeat;
+      box-shadow: var(--shadow);
+      display: grid;
+      align-items: end;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(143,93,63,.10);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(640px, 100%);
+      padding: clamp(28px, 5vw, 60px);
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6.8vw, 82px);
+      line-height: .92;
+      font-weight: 500;
+      letter-spacing: -.05em;
+    }
+    .intro {
+      margin: 20px 0 0;
+      max-width: 560px;
+      color: #5f5143;
+      font-size: clamp(17px, 1.9vw, 21px);
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(120,87,55,.16);
+      background: rgba(255,255,255,.52);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .05em;
+    }
+    .section-head {
+      margin: 34px 0 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 500;
+      letter-spacing: -.03em;
+    }
+    .section-head p {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 24px 22px 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+    }
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--olive);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: .98;
+      font-weight: 500;
+      letter-spacing: -.03em;
+    }
+    .card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .features {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #4c3f33;
+      font-size: 14px;
+    }
+    .features li {
+      padding-top: 10px;
+      border-top: 1px solid rgba(120,87,55,.10);
+    }
+    .link-row {
+      margin-top: auto;
+      padding-top: 18px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .01em;
+      box-shadow: 0 10px 22px rgba(143,93,63,.20);
+    }
+    .button.secondary {
+      background: rgba(255,255,255,.72);
+      color: var(--accent);
+      border: 1px solid rgba(120,87,55,.14);
+      box-shadow: none;
+    }
+    .notes {
+      margin-top: 28px;
+      padding: 22px 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 12px;
+    }
+    .notes ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 22px;
+    }
+    .notes li {
+      padding-top: 8px;
+      border-top: 1px solid rgba(120,87,55,.10);
+    }
+    .footerline {
+      margin-top: 18px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 10px; }
+      .notes ul { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .page { width: min(100%, calc(100% - 18px)); padding-top: 14px; }
+      .hero { min-height: 460px; border-radius: 28px; background-position: 64% center; }
+      .hero::before { inset: 12px; border-radius: 18px; }
+      .card { border-radius: 22px; }
+    }
+  </style>
+<script type="text/javascript" nonce="f58ae1a3aeeb49c1af5ca59faae" src="//local.adguard.org?ts=1781211292208&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_00000000b1d071f4a8a2caa3866760d3%26ts%3D494782%26p%3Dfs%26cid%3D1%26sig%3D961f7eb7d41b5a4fef9e899d7b7297ea5e4e555beeaba26226b41ddad1d9d68e%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=0&amp;rji=0&amp;sbe=0&amp;stealth=0"></script><script type="text/javascript" nonce="f58ae1a3aeeb49c1af5ca59faae" src="//local.adguard.org?ts=1781211292208&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;name=ChatGPT%20Exporter&amp;name=ChatGPT%20Lazy%20Chat%2B%2B%20%28HARD%20PAUSE%20%2B%20idle%20batching%20%2B%20translate%20layout%20patch%29&amp;type=user-script"></script></head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Chef Graziella intro">
+      <div class="hero-content">
+        <p class="eyebrow">Chef Graziella Malgeri</p>
+        <h1>Menus & Cooking Classes in Tuscany</h1>
+        <p class="intro">A single elegant landing page to browse Graziella’s selected private dinner menus, larger-group menus and cooking classes.</p>
+        <div class="meta">
+          <span class="pill">Private chef</span>
+          <span class="pill">Cooking classes</span>
+          <span class="pill">In-villa experience</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>Choose the experience</h2>
+      <p>Everything below is ready to be shared as a clean website. Each section opens its dedicated page.</p>
+    </div>
+
+    <section class="grid" aria-label="Main navigation">
+      <article class="card">
+        <p class="kicker">Most requested</p>
+        <h3>Selected Menus</h3>
+        <p>A curated selection of the clearest and most versatile private dinner menus, ordered by price.</p>
+        <ul class="features">
+          <li>8 selected private dinner menus</li>
+          <li>Original menu names preserved</li>
+          <li>Wines included</li>
+        </ul>
+        <div class="link-row"><a class="button" href="selected-menus.html">Open selected menus</a></div>
+      </article>
+
+      <article class="card">
+        <p class="kicker">Larger groups</p>
+        <h3>8 Pax Menus</h3>
+        <p>The dedicated set of menus for groups of 8 guests or more, with the original Menu One, Menu Two and Menu Three.</p>
+        <ul class="features">
+          <li>Fixed price at €75 p.p.</li>
+          <li>Designed for 8 guests or more</li>
+          <li>Simple and clean layout</li>
+        </ul>
+        <div class="link-row"><a class="button" href="menus-8-pax.html">Open 8 pax menus</a></div>
+      </article>
+
+      <article class="card">
+        <p class="kicker">Hands-on experience</p>
+        <h3>Cooking Classes</h3>
+        <p>A selected range of Tuscan cooking lessons with tasting, wine, diploma and recipe booklet.</p>
+        <ul class="features">
+          <li>5 original class options</li>
+          <li>Clear price list by group size</li>
+          <li>Included items shown separately</li>
+        </ul>
+        <div class="link-row"><a class="button" href="cooking-classes.html">Open cooking classes</a></div>
+      </article>
+    </section>
+
+    <section class="notes" aria-label="Small notes">
+      <ul>
+        <li>Paired wines are included where indicated in the menu pages.</li>
+        <li>Chef travel to the villa: €50 total extra, regardless of distance.</li>
+        <li>Cash payment: prices are as shown.</li>
+        <li>Card / POS payment: +4%.</li>
+      </ul>
+      <p class="footerline">Chef Graziella Malgeri · Menu index</p>
+    </section>
+  </main>
+</body>
+</html>
